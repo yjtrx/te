@@ -1,0 +1,47 @@
+!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Evaluating Teaching quality</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+
+
+<style>
+  ::placeholder {
+    color:rgb(13, 13, 14);
+    opacity:0.8; /* Firefox */
+    font-weight: bold;
+  }
+  </style>
+
+</head>
+
+
+ <div class="login">
+	<h1>Evaluate your teacher's teaching quality</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form name="myform" action="{{ url_for('predict')}}"method="post" onsubmit="return(validateform());">
+        <input type="text" style="background-color:rgba(219, 228, 236,0.5); height: 45px;" name="courseinst" placeholder="courseinst" required="required" /><br>
+        <input type="text" style="background-color:rgba(219, 228, 236,0.5);height: 45px;" name="course" placeholder="course" required="required" /><br>
+        <input type="text" style="background-color:rgba(219, 228, 236,0.5);height: 45px;" name="classsize" placeholder="classsize" required="required" /><br>
+        <button type="submit" class="btn btn-primary btn-block btn-large" style="margin-bottom: 10px;">Predict</button>
+
+
+        <!--<a href="visual" class="btn btn-primary btn-block btn-large" style="text-decoration: none;">Visualize</a>-->
+    </form>
+    <div>
+     <b><p>Predicted quality evaluation of teacher</p> <p style="width: 100%; font-size: medium; color:black;">{{ prediction_text }}<br></p></b>
+     </div>
+ </div>
+
+
+
+</body>
+</html>
