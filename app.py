@@ -15,7 +15,7 @@ def predict():
     For rendering results on HTML GUI
     """
     features = [str(x) for x in request.form.values()]
-    courseinst = int(features[0])
+    courseint = int(features[0])
     course = int(features[1])
     classsize = int(features[2])
     final_features = []
